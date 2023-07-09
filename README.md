@@ -1,7 +1,7 @@
 # Easy-Python-Database
 
 Turkish
-- **Python** ve içerisindeki **Sqlite3** kütüphanesi ile geliştirilmiş bir veritabanı. Kullanımının genel kullanım için **kolay** ve **verimli** olması adına çalışmaktayım. Yardım ve görüşlere açığım!
+- **Sqlite3** kütüphanesinin kullanımı daha **kolaylaştıran** ve genel kullanımda yardımcı olabilecek **fonksiyonları** tek bir yerde tutmayı hedefleyen bir proje.
 -------
 English
-- A database written in **Python** with using **Sqlite3** library. I am working for making it more **efficient** and **easier** database for general use. I'm open for helps and suggestions! 
+-  A project aiming to make the usage of the Sqlite3 library easier and provide helpful functions for general usage, all gathered in one place.
