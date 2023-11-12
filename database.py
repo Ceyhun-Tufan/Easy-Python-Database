@@ -5,11 +5,21 @@ class DataBase:
     def __init__(self,name) -> None:
         self.name = name
         self.connection = sqlite3.connect("{}.db".format(self.name))
-        self.cursor = self.connection.cursor()        
+        self.cursor = self.connection.cursor()       
+
     def info(self) -> None:
         print("""database = DataBase() ## DataBase class'ını atayın
         Daha sonra table oluşturmak için create_table() içerisine ilk olarak 
-        table ismi, sonrasında elemanların isim ve türlerini yazın""")
+        table ismi, sonrasında elemanların isim ve türlerini yazın
+        
+        db.create_table("Users",'''
+        NAME TEXT NOT NULL,
+        SNAME TEXT NOT NULL,
+        AGE INT NOT NULL
+                ''')
+      
+              
+              """)
         
     def create_table(self,name:str,val:str) -> None:
         try:
@@ -27,6 +37,7 @@ class DataBase:
                 ourstring += "'"+ i+"'"
         ourstring += ")"
         try:
+            self.search_one(table_name=table_name,val=vals)
             self.cursor.execute("""INSERT OR IGNORE INTO {} VALUES""".format(table_name) + ourstring)
             self.connection.commit()
         except Error as e:
@@ -35,7 +46,7 @@ class DataBase:
     # To find smth specific with the name of the collumn and expected value
     def search_one(self,table_name:str,val:list) -> list:
         val[1] = "'"+val[1]+"'"
-        self.cursor.execute("""SELECT * FROM {} WHERE {} = {} """.format(table_name,val[0],val[1]))
+        self.cursor.execute(f"""SELECT * FROM {table_name} WHERE {val[0]} = {val[1]} """)
         rows = self.cursor.fetchall()
         list_to_return = []
         for row in rows:
