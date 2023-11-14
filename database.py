@@ -152,15 +152,3 @@ class DataBase:
         except Error as e:
             if self.output or self.error_outputs:
                 print("An error occurred:", e)
-
-
-
-base = DataBase("trybase")
-#x = base.search_one("Sunucu1",["gerekenler1","ceyhun"])
-#print(x)
-base.connection.close()
-
-#base.cursor.execute("""DELETE FROM Sunucu1""")
-#base.insert_one("Sunucu1",["ceyhun","18","a"])
-#base.remove_row("Sunucu1","gerekenler1","ceyhun")
-#base.create_table("isim","""gerekenler1 text""")
